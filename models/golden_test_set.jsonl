@@ -1,0 +1,200 @@
+{"text": "Are there restrictions for my disposable card since it does not seem to be working?", "label": 72, "label_name": "virtual_card_not_working"}
+{"text": "I'm trying to transfer money to another country. It's just pending and not sending. My account details are correct. Please help me.", "label": 48, "label_name": "pending_transfer"}
+{"text": "What do I do if I notice a strange withdrawl in my statement?", "label": 20, "label_name": "cash_withdrawal_not_recognised"}
+{"text": "I got a message that I need to verify my identity; what do I do?", "label": 69, "label_name": "verify_my_identity"}
+{"text": "How do I use the app if I don't have my phone with me?", "label": 42, "label_name": "lost_or_stolen_phone"}
+{"text": "why is the exchange rate for a Foreign ATM different", "label": 76, "label_name": "wrong_exchange_rate_for_cash_withdrawal"}
+{"text": "What happens if my card is stuck in the ATM?", "label": 18, "label_name": "card_swallowed"}
+{"text": "Is there a discount for frequently exchanging currencies?", "label": 31, "label_name": "exchange_charge"}
+{"text": "I sent money.  They haven't received it.", "label": 66, "label_name": "transfer_not_received_by_recipient"}
+{"text": "What age do my kids need to be to use your service?", "label": 1, "label_name": "age_limit"}
+{"text": "I've notice I was charged for withdrawing cash, can you explain why?", "label": 19, "label_name": "cash_withdrawal_charge"}
+{"text": "Can you please identify the problem with my bank card?", "label": 14, "label_name": "card_not_working"}
+{"text": "Do you know where my card will be accepted?", "label": 10, "label_name": "card_acceptance"}
+{"text": "My work sends me all over the world, can I get a discount for all the money I have to exchange?", "label": 31, "label_name": "exchange_charge"}
+{"text": "Why do I have to verify my identity?", "label": 74, "label_name": "why_verify_identity"}
+{"text": "When my card expires what happens to my account?", "label": 9, "label_name": "card_about_to_expire"}
+{"text": "It appears that I am being double charged for some items that I have purchased this past week.  Please review and correct.", "label": 63, "label_name": "transaction_charged_twice"}
+{"text": "how long til my cash out goes through?", "label": 46, "label_name": "pending_cash_withdrawal"}
+{"text": "my phone is gone", "label": 42, "label_name": "lost_or_stolen_phone"}
+{"text": "My money transfer has not arrived.", "label": 66, "label_name": "transfer_not_received_by_recipient"}
+{"text": "I bought something but now I would like a refund. How do I do that?", "label": 52, "label_name": "request_refund"}
+{"text": "Hello. Can you tell me if you use Visa or Mastercard?", "label": 73, "label_name": "visa_or_mastercard"}
+{"text": "I can't see my latest bank transfer", "label": 5, "label_name": "balance_not_updated_after_bank_transfer"}
+{"text": "I got a fee for an ATM withdrawal.", "label": 19, "label_name": "cash_withdrawal_charge"}
+{"text": "There is a transaction for $1 and I don't know why it was charged.", "label": 34, "label_name": "extra_charge_on_statement"}
+{"text": "Am I able to get a second card?", "label": 39, "label_name": "getting_spare_card"}
+{"text": "Why is my card payment showing as pending?", "label": 45, "label_name": "pending_card_payment"}
+{"text": "Why was I chaged twice for the same thing?", "label": 63, "label_name": "transaction_charged_twice"}
+{"text": "Is it okay to use a bank card to top up", "label": 57, "label_name": "top_up_by_card_charge"}
+{"text": "I see what looks like duplicate charges on account.", "label": 63, "label_name": "transaction_charged_twice"}
+{"text": "What ATMs is the card okay to use at?", "label": 3, "label_name": "atm_support"}
+{"text": "I want a refund because my package has been taking too long to arrive. How do I go about doing that?", "label": 52, "label_name": "request_refund"}
+{"text": "Freeze my account it's been hacked.", "label": 22, "label_name": "compromised_card"}
+{"text": "The card got declined twice when I tried to use it to buy something online yesterday.", "label": 27, "label_name": "declined_transfer"}
+{"text": "The transfer is coming up as pending the payment is due today. Will I be charged a fee?", "label": 48, "label_name": "pending_transfer"}
+{"text": "Does my PIN come with my card?", "label": 38, "label_name": "get_physical_card"}
+{"text": "Someone else is using my card, freeze it.", "label": 22, "label_name": "compromised_card"}
+{"text": "Transferring money in 2018 to another country shouldn't take this long. My transfer has been pending for too long. I verified my account details are correct.", "label": 48, "label_name": "pending_transfer"}
+{"text": "My card is gone I think it was stolen", "label": 41, "label_name": "lost_or_stolen_card"}
+{"text": "Can I get a mastercard?", "label": 73, "label_name": "visa_or_mastercard"}
+{"text": "I don't understand where this debit came from and want it removed.", "label": 28, "label_name": "direct_debit_payment_not_recognised"}
+{"text": "I made a transfer 12 hours ago. Why is it still listed as pending?", "label": 48, "label_name": "pending_transfer"}
+{"text": "can you limit my top up?", "label": 60, "label_name": "top_up_limits"}
+{"text": "Why can't I get my virtual card to work?", "label": 72, "label_name": "virtual_card_not_working"}
+{"text": "What steps must I follow to get a Visa credit card?", "label": 73, "label_name": "visa_or_mastercard"}
+{"text": "Can I transfer money to a beneficiery?", "label": 7, "label_name": "beneficiary_not_allowed"}
+{"text": "Can you help with a transfer to an account", "label": 7, "label_name": "beneficiary_not_allowed"}
+{"text": "Do you support all fiat currencies?", "label": 36, "label_name": "fiat_currency_support"}
+{"text": "My transfer didn't go through.", "label": 35, "label_name": "failed_transfer"}
+{"text": "How do I add the card to my account?", "label": 13, "label_name": "card_linking"}
+{"text": "I am still waiting for a cash withdrawal to show", "label": 46, "label_name": "pending_cash_withdrawal"}
+{"text": "What places can I use my card?", "label": 10, "label_name": "card_acceptance"}
+{"text": "How do I open up an account for my child?", "label": 1, "label_name": "age_limit"}
+{"text": "can you tell me what cards and currencies you take?", "label": 54, "label_name": "supported_cards_and_currencies"}
+{"text": "Why didn't my balance change after I transferred some money?", "label": 5, "label_name": "balance_not_updated_after_bank_transfer"}
+{"text": "The wrong rate was applied to an item I bought in a currency different from mine. Can this be changed?", "label": 17, "label_name": "card_payment_wrong_exchange_rate"}
+{"text": "How many tries do I have to enter my pin before I'm blocked?", "label": 49, "label_name": "pin_blocked"}
+{"text": "My top-up isn't working.", "label": 59, "label_name": "top_up_failed"}
+{"text": "Where do I need to live to get support?", "label": 24, "label_name": "country_support"}
+{"text": "Delete this account!", "label": 55, "label_name": "terminate_account"}
+{"text": "There is an extra $1 charge", "label": 34, "label_name": "extra_charge_on_statement"}
+{"text": "app does not recognize me", "label": 68, "label_name": "unable_to_verify_identity"}
+{"text": "What are the fees for a physical card?", "label": 43, "label_name": "order_physical_card"}
+{"text": "Is there a limit to top-ups?", "label": 60, "label_name": "top_up_limits"}
+{"text": "Please explain why the transfers shows up as pending?", "label": 48, "label_name": "pending_transfer"}
+{"text": "How do I know which ATMs will accept this card?", "label": 3, "label_name": "atm_support"}
+{"text": "Is my cash withdrawal pending?", "label": 46, "label_name": "pending_cash_withdrawal"}
+{"text": "Why do you require so many identity details?", "label": 74, "label_name": "why_verify_identity"}
+{"text": "I don't recognize a debit payment that was made and would like to find out about the payment.", "label": 28, "label_name": "direct_debit_payment_not_recognised"}
+{"text": "Still waiting on a refund.", "label": 51, "label_name": "Refund_not_showing_up"}
+{"text": "Why is there a transaction that shows multiple times?", "label": 63, "label_name": "transaction_charged_twice"}
+{"text": "I was taking out funds and was unable to regain my card.", "label": 18, "label_name": "card_swallowed"}
+{"text": "My credit card cancelled a payment for a purchase.", "label": 53, "label_name": "reverted_card_payment?"}
+{"text": "Can I get a physical card through this app?", "label": 43, "label_name": "order_physical_card"}
+{"text": "I made a mistake and need to cancel a transaction", "label": 8, "label_name": "cancel_transfer"}
+{"text": "I need to verify my identity, but how do I do that?", "label": 69, "label_name": "verify_my_identity"}
+{"text": "I need to cancel an incorrect transaction.", "label": 8, "label_name": "cancel_transfer"}
+{"text": "My latest payment was declined, I was told everything was back to working order. What happened?", "label": 25, "label_name": "declined_card_payment"}
+{"text": "whats your exchange rate", "label": 31, "label_name": "exchange_charge"}
+{"text": "How do I get my paycheck through this?", "label": 50, "label_name": "receiving_money"}
+{"text": "How can i check if my card is working?", "label": 14, "label_name": "card_not_working"}
+{"text": "What is the top-ups limit?", "label": 60, "label_name": "top_up_limits"}
+{"text": "I would like to link my card. How do I do it?", "label": 13, "label_name": "card_linking"}
+{"text": "Where do I go if I want to link my new card?", "label": 13, "label_name": "card_linking"}
+{"text": "How can I start using my card?", "label": 0, "label_name": "activate_my_card"}
+{"text": "I made a mistake when I did a transfer so now what can I do to fix that?", "label": 8, "label_name": "cancel_transfer"}
+{"text": "The app reverted what I topped up.", "label": 61, "label_name": "top_up_reverted"}
+{"text": "In terms of holding and exchange, what fiat currencies do you use.", "label": 36, "label_name": "fiat_currency_support"}
+{"text": "Can you tell me if my top-up has been cancelled?", "label": 61, "label_name": "top_up_reverted"}
+{"text": "Why can't I use my American Express with Apple Pay to top up my account?", "label": 2, "label_name": "apple_pay_or_google_pay"}
+{"text": "Can you help me with a weird charge?  It's a pound charge that never goes away from the statement view on the app I'm using.  It's not described as anything but \"Pending\", and that status has never changed during the last two days.", "label": 34, "label_name": "extra_charge_on_statement"}
+{"text": "I received my new card, but I don't see it in the app anywhere.  What do I do?", "label": 13, "label_name": "card_linking"}
+{"text": "The transfer I did hasn't arrived", "label": 66, "label_name": "transfer_not_received_by_recipient"}
+{"text": "Can I top up using an international card", "label": 57, "label_name": "top_up_by_card_charge"}
+{"text": "How do I deal with a blocked PIN?", "label": 49, "label_name": "pin_blocked"}
+{"text": "Why was I charged a fee for withdrawing cash?", "label": 19, "label_name": "cash_withdrawal_charge"}
+{"text": "I payed with a card and was charged an extra fee", "label": 15, "label_name": "card_payment_fee_charged"}
+{"text": "Hello. I checked my transactions and saw I was double charged on my card for a restaurant visit. I would like to get my money back.", "label": 63, "label_name": "transaction_charged_twice"}
+{"text": "How long do card transactions take to clear?", "label": 45, "label_name": "pending_card_payment"}
+{"text": "I don't like that I have to fill out so much information about my identity.", "label": 74, "label_name": "why_verify_identity"}
+{"text": "I need to update my current address", "label": 30, "label_name": "edit_personal_details"}
+{"text": "I would like to change my pin.", "label": 21, "label_name": "change_pin"}
+{"text": "Why is there an extra 1 pound charge on my card?", "label": 34, "label_name": "extra_charge_on_statement"}
+{"text": "How do I link my replacement card?", "label": 13, "label_name": "card_linking"}
+{"text": "How long will this card payment stay pending?", "label": 45, "label_name": "pending_card_payment"}
+{"text": "What countries are you currently in?", "label": 24, "label_name": "country_support"}
+{"text": "There's a Direct Debit payment in my account that I didn't make", "label": 28, "label_name": "direct_debit_payment_not_recognised"}
+{"text": "Will this app exchange currencies?", "label": 33, "label_name": "exchange_via_app"}
+{"text": "Please put a freeze on my card,  I am worried there has been some payments on it and I don't know what for.", "label": 16, "label_name": "card_payment_not_recognised"}
+{"text": "There is a odd withdrawal on my account.", "label": 20, "label_name": "cash_withdrawal_not_recognised"}
+{"text": "Why doesn't the card payment work", "label": 25, "label_name": "declined_card_payment"}
+{"text": "I completed a money transaction but the recipient hasn't received it", "label": 66, "label_name": "transfer_not_received_by_recipient"}
+{"text": "Is there a problem with receiving my salary in GBP?", "label": 50, "label_name": "receiving_money"}
+{"text": "Why didn`t my topup go through?", "label": 59, "label_name": "top_up_failed"}
+{"text": "Are there extra charges for exchanging currency?", "label": 31, "label_name": "exchange_charge"}
+{"text": "I had a transfer blocked", "label": 7, "label_name": "beneficiary_not_allowed"}
+{"text": "I would like to create a disposable virtual card. How do I go about doing that?", "label": 37, "label_name": "get_disposable_virtual_card"}
+{"text": "Can you tell me why my refund is not showing in my statement?", "label": 51, "label_name": "Refund_not_showing_up"}
+{"text": "Is there a fee for exchanging currencies?", "label": 31, "label_name": "exchange_charge"}
+{"text": "What are the top up charges for US cards?", "label": 57, "label_name": "top_up_by_card_charge"}
+{"text": "My attempted transfer failed.", "label": 35, "label_name": "failed_transfer"}
+{"text": "I received my American Express card, but I am having problems making it work with Apple pay.  Can you help me with this problem?", "label": 2, "label_name": "apple_pay_or_google_pay"}
+{"text": "My transfer didn't work", "label": 35, "label_name": "failed_transfer"}
+{"text": "I need to change my pin but I am on the road.", "label": 21, "label_name": "change_pin"}
+{"text": "What are the fees to get a physical card?", "label": 43, "label_name": "order_physical_card"}
+{"text": "How can I top up my Google Pay?", "label": 2, "label_name": "apple_pay_or_google_pay"}
+{"text": "what is the most i can top up?", "label": 60, "label_name": "top_up_limits"}
+{"text": "Is there anyway, I can get a disposable virtual card?", "label": 37, "label_name": "get_disposable_virtual_card"}
+{"text": "How do I top up with Apple Pay?", "label": 2, "label_name": "apple_pay_or_google_pay"}
+{"text": "My phone is lost.  What do I do to prevent someone from using the app?", "label": 42, "label_name": "lost_or_stolen_phone"}
+{"text": "How do I get my top-up verification code?", "label": 71, "label_name": "verify_top_up"}
+{"text": "I thought cash withdrawals were free? Why have I been charged a fee? Also, how much is this fee?", "label": 19, "label_name": "cash_withdrawal_charge"}
+{"text": "Assist me please with card activation.", "label": 0, "label_name": "activate_my_card"}
+{"text": "Is it possible to use my credit card to transfer money?", "label": 62, "label_name": "topping_up_by_card"}
+{"text": "How do I troubleshoot Google pay top up?", "label": 2, "label_name": "apple_pay_or_google_pay"}
+{"text": "My transfer is still coming up as pending.", "label": 48, "label_name": "pending_transfer"}
+{"text": "I've tried numerous times to submit a transfer of funds. Why isn't it going through?", "label": 7, "label_name": "beneficiary_not_allowed"}
+{"text": "How much money can i top up?", "label": 60, "label_name": "top_up_limits"}
+{"text": "is apple pay eligible for top up", "label": 2, "label_name": "apple_pay_or_google_pay"}
+{"text": "I need to know the cost and when I will receive a new card to replace an old one.", "label": 9, "label_name": "card_about_to_expire"}
+{"text": "I deposited a check but my balance is still the same.", "label": 6, "label_name": "balance_not_updated_after_cheque_or_cash_deposit"}
+{"text": "Do these virtual cards have any caps on using them?", "label": 29, "label_name": "disposable_card_limits"}
+{"text": "The atm won't give my card back!", "label": 18, "label_name": "card_swallowed"}
+{"text": "From where are you getting your exchange rates?", "label": 32, "label_name": "exchange_rate"}
+{"text": "What do I do if I think someone managed to get my card information?", "label": 22, "label_name": "compromised_card"}
+{"text": "Why hasn't my card been delivered?", "label": 11, "label_name": "card_arrival"}
+{"text": "why was my transfer declined", "label": 27, "label_name": "declined_transfer"}
+{"text": "I'm not sure why my account has been refunded a payment for an item I've already received about 2 weeks ago. Can you please tell me what is going on?", "label": 53, "label_name": "reverted_card_payment?"}
+{"text": "I want to choose a different PIN.", "label": 21, "label_name": "change_pin"}
+{"text": "How long does it take for a money transfer to show?", "label": 48, "label_name": "pending_transfer"}
+{"text": "I want to reverse a purchase. Can I cancel it?", "label": 52, "label_name": "request_refund"}
+{"text": "What is the difference between standard and express delivery?", "label": 12, "label_name": "card_delivery_estimate"}
+{"text": "My daughter needs a card. Can I give her one of mine that's linked to my account?", "label": 39, "label_name": "getting_spare_card"}
+{"text": "what is source of my funds, need to verify", "label": 70, "label_name": "verify_source_of_funds"}
+{"text": "I cannot find my credit card.", "label": 41, "label_name": "lost_or_stolen_card"}
+{"text": "Where can I obtain my virtual card?", "label": 40, "label_name": "getting_virtual_card"}
+{"text": "Can you tell me how to close my account?", "label": 55, "label_name": "terminate_account"}
+{"text": "I made a cash deposit almost a week ago but it's still not there!! please sort this out asap I need the money", "label": 6, "label_name": "balance_not_updated_after_cheque_or_cash_deposit"}
+{"text": "Will my friend be able to top off my account?", "label": 62, "label_name": "topping_up_by_card"}
+{"text": "What is the point of an identity check?", "label": 74, "label_name": "why_verify_identity"}
+{"text": "Why isn't a recent refund on my statement?", "label": 51, "label_name": "Refund_not_showing_up"}
+{"text": "I am missing some funds from my account - I tried to transfer them using my credit card number, and it disappeared.", "label": 62, "label_name": "topping_up_by_card"}
+{"text": "I need help getting the virtual card to work.", "label": 72, "label_name": "virtual_card_not_working"}
+{"text": "I want to order another crad", "label": 39, "label_name": "getting_spare_card"}
+{"text": "Why are there so many fees on my statement?", "label": 34, "label_name": "extra_charge_on_statement"}
+{"text": "Top up on my Google Pay isn't working.", "label": 2, "label_name": "apple_pay_or_google_pay"}
+{"text": "My receipt shows an extra charge on my transfer, why is this?", "label": 64, "label_name": "transfer_fee_charged"}
+{"text": "It will be fine to use at any establishment that accepts Mastercard.", "label": 10, "label_name": "card_acceptance"}
+{"text": "I didn't get the right amount at the ATM.", "label": 75, "label_name": "wrong_amount_of_cash_received"}
+{"text": "How do I activate a card I received?", "label": 0, "label_name": "activate_my_card"}
+{"text": "Why can't I see my topup in my wallet anymore?", "label": 62, "label_name": "topping_up_by_card"}
+{"text": "Are there any limits to how many disposable cards I can use?", "label": 29, "label_name": "disposable_card_limits"}
+{"text": "Where can I use my card?", "label": 10, "label_name": "card_acceptance"}
+{"text": "Can I get paid in another currency?", "label": 50, "label_name": "receiving_money"}
+{"text": "I made a transaction but did it to the wrong account.", "label": 8, "label_name": "cancel_transfer"}
+{"text": "Why was my Payment declined", "label": 25, "label_name": "declined_card_payment"}
+{"text": "how secure is a disposable virtual card", "label": 37, "label_name": "get_disposable_virtual_card"}
+{"text": "May I exchange currencies with this?", "label": 33, "label_name": "exchange_via_app"}
+{"text": "Hello I changed my mind and really need a refund on one of things I bought recently. Can you please cancel the transaction and get my money back. Please it's urgent.", "label": 52, "label_name": "request_refund"}
+{"text": "My ecchange rate was wrong for a cash transaction.", "label": 76, "label_name": "wrong_exchange_rate_for_cash_withdrawal"}
+{"text": "What are the rules for transferring to a beneficiary?", "label": 7, "label_name": "beneficiary_not_allowed"}
+{"text": "Where can I find the top-up verification code?", "label": 71, "label_name": "verify_top_up"}
+{"text": "Is there a specific type you need for identity verification?", "label": 69, "label_name": "verify_my_identity"}
+{"text": "Whats the delivery time to the United States?", "label": 12, "label_name": "card_delivery_estimate"}
+{"text": "Why isn't my top up working using my saved American Express in ApplePay?", "label": 2, "label_name": "apple_pay_or_google_pay"}
+{"text": "Why do I have to verify the top-up?", "label": 71, "label_name": "verify_top_up"}
+{"text": "I don't have my access code for the app.", "label": 44, "label_name": "passcode_forgotten"}
+{"text": "Are you sure when the withdrawal will show?", "label": 46, "label_name": "pending_cash_withdrawal"}
+{"text": "how old do i need to be to get an account for myself", "label": 1, "label_name": "age_limit"}
+{"text": "What do I do if my card is expiring soon?", "label": 9, "label_name": "card_about_to_expire"}
+{"text": "Can you tell my why my card payment has been reverted.", "label": 53, "label_name": "reverted_card_payment?"}
+{"text": "I'd like to use cash to top up. How do I find that option?", "label": 58, "label_name": "top_up_by_cash_or_cheque"}
+{"text": "Help me cancel my transaction", "label": 8, "label_name": "cancel_transfer"}
+{"text": "Where is my new card? I have been waiting a week!", "label": 11, "label_name": "card_arrival"}
+{"text": "how to activate card?", "label": 0, "label_name": "activate_my_card"}
+{"text": "Can you explain where I can find the auto-top option?", "label": 4, "label_name": "automatic_top_up"}
+{"text": "Where can I exchange my money for EUR?", "label": 36, "label_name": "fiat_currency_support"}
+{"text": "Will I be charged if someone needs to send me money?", "label": 56, "label_name": "top_up_by_bank_transfer_charge"}
+{"text": "Can you tell me why my top up was reverted?", "label": 61, "label_name": "top_up_reverted"}
+{"text": "I still have not received my new card, I ordered over a week ago.", "label": 11, "label_name": "card_arrival"}

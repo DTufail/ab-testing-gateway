@@ -1,0 +1,25 @@
+{
+  "timestamp": "2026-03-24T17:53:43.783051+00:00",
+  "endpoint_name": "ab-gateway-endpoint-20260324-174026",
+  "n_requests_per_variant": 50,
+  "variants": {
+    "VariantA-BERT-FP32": {
+      "p50": 1496.04,
+      "p95": 2417.65,
+      "p99": 2852.24,
+      "mean": 1648.84
+    },
+    "VariantB-BERT-INT8": {
+      "p50": 1425.15,
+      "p95": 2568.96,
+      "p99": 2795.87,
+      "mean": 1619.61
+    },
+    "VariantC-DistilBERT": {
+      "p50": 1569.08,
+      "p95": 2339.55,
+      "p99": 3968.05,
+      "mean": 1691.86
+    }
+  }
+}

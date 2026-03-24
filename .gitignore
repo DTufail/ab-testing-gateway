@@ -1,0 +1,32 @@
+# Python cache and local environments
+__pycache__/
+*.py[cod]
+*.so
+.Python
+.venv/
+venv/
+
+# OS/editor noise
+.DS_Store
+.vscode/
+
+# Runtime/local state
+.endpoint_name
+pipeline.log
+
+# Model/training artifacts and large binaries
+output/
+bert-int8-artifact/
+bert-int8-onnx/
+*.tar.gz
+*.tar.gz.*
+*.onnx
+*.safetensors
+*.pt
+*.pth
+*.bin
+
+# Build/distribution artifacts
+build/
+dist/
+*.egg-info/

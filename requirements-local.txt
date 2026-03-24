@@ -1,0 +1,8 @@
+torch
+transformers>=4.41
+datasets>=2.14,<3.0
+accelerate
+optimum[onnxruntime]
+scikit-learn
+sagemaker>=2.100,<3.0
+boto3
