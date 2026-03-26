@@ -1,0 +1,1 @@
+# Empty — boto3 is pre-installed in Lambda Python 3.12
