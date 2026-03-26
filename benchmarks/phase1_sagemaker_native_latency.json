@@ -1,0 +1,74 @@
+{
+  "endpoint_name": "ab-gateway-endpoint-20260325-085817",
+  "pulled_at": "2026-03-25T17:06:50.103383+00:00",
+  "lookback_hours": 1,
+  "note": "Units: _us = microseconds, _ms = milliseconds. ModelLatency = pure container inference. OverheadLatency = SageMaker routing overhead.",
+  "variants": {
+    "VariantA-BERT-FP32": {
+      "ModelLatency": {
+        "avg_us": 257304.8,
+        "min_us": 251335.0,
+        "max_us": 317055.0,
+        "p50_us": 258269.5,
+        "p95_us": 271146.4,
+        "p99_us": 301907.2,
+        "p50_ms": 258.3,
+        "p95_ms": 271.1
+      },
+      "OverheadLatency": {
+        "avg_us": 3827.0,
+        "min_us": 2593.0,
+        "max_us": 30737.0,
+        "p50_us": 3239.1,
+        "p95_us": 5928.5,
+        "p99_us": 26498.6,
+        "p50_ms": 3.2,
+        "p95_ms": 5.9
+      }
+    },
+    "VariantB-BERT-INT8": {
+      "ModelLatency": {
+        "avg_us": 183626.6,
+        "min_us": 173584.0,
+        "max_us": 248785.0,
+        "p50_us": 178102.7,
+        "p95_us": 236486.0,
+        "p99_us": 246510.2,
+        "p50_ms": 178.1,
+        "p95_ms": 236.5
+      },
+      "OverheadLatency": {
+        "avg_us": 4015.1,
+        "min_us": 2583.0,
+        "max_us": 15324.0,
+        "p50_us": 3284.7,
+        "p95_us": 8275.9,
+        "p99_us": 15279.2,
+        "p50_ms": 3.3,
+        "p95_ms": 8.3
+      }
+    },
+    "VariantC-DistilBERT": {
+      "ModelLatency": {
+        "avg_us": 135963.5,
+        "min_us": 130647.0,
+        "max_us": 188653.0,
+        "p50_us": 134037.0,
+        "p95_us": 148272.6,
+        "p99_us": 183897.6,
+        "p50_ms": 134.0,
+        "p95_ms": 148.3
+      },
+      "OverheadLatency": {
+        "avg_us": 4359.3,
+        "min_us": 2899.0,
+        "max_us": 24451.0,
+        "p50_us": 3839.1,
+        "p95_us": 7105.4,
+        "p99_us": 24428.7,
+        "p50_ms": 3.8,
+        "p95_ms": 7.1
+      }
+    }
+  }
+}

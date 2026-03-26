@@ -2,19 +2,20 @@
 import os
 
 AWS_REGION        = "us-east-1"
-AWS_ACCOUNT_ID    = os.environ.get("AWS_ACCOUNT_ID", "REPLACE_WITH_YOUR_ACCOUNT_ID")
+AWS_ACCOUNT_ID    = os.environ.get("AWS_ACCOUNT_ID", "011190986627")
 S3_BUCKET         = "ab-gateway-artifacts"
-SAGEMAKER_ROLE    = os.environ.get("SAGEMAKER_ROLE_ARN", "REPLACE_WITH_YOUR_ROLE_ARN")
+SAGEMAKER_ROLE    = os.environ.get("SAGEMAKER_ROLE_ARN", "arn:aws:iam::011190986627:role/service-role/AmazonSageMaker-ExecutionRole-20260324T125083")
 
-# S3 paths — model weights
-# Variants A & C point to raw training output; inference code is uploaded separately
+# S3 paths — original model weights (raw training output, weights only)
 S3_BERT_FP32  = f"s3://{S3_BUCKET}/models/bert-fp32/huggingface-pytorch-training-2026-03-24-14-48-08-677/output/model.tar.gz"
 S3_BERT_INT8  = f"s3://{S3_BUCKET}/models/bert-int8/model.tar.gz"
 S3_DISTILBERT = f"s3://{S3_BUCKET}/models/distilbert-fp32/huggingface-pytorch-training-2026-03-24-15-02-31-971/output/model.tar.gz"
 
-# S3 locations for inference code tarballs (uploaded once by deploy_endpoint.py)
-S3_CODE_FP32  = f"s3://{S3_BUCKET}/code/inference_fp32.tar.gz"
-S3_CODE_ONNX  = f"s3://{S3_BUCKET}/code/inference_onnx.tar.gz"
+# S3 paths — bundled archives (model weights + code/inference.py in one tar.gz)
+# The HF DLC finds inference.py at /opt/ml/model/code/inference.py automatically.
+# No SAGEMAKER_SUBMIT_DIRECTORY or SAGEMAKER_PROGRAM env vars needed.
+S3_BERT_FP32_BUNDLED  = f"s3://{S3_BUCKET}/models/bert-fp32-bundled/model.tar.gz"
+S3_DISTILBERT_BUNDLED = f"s3://{S3_BUCKET}/models/distilbert-bundled/model.tar.gz"
 
 # SageMaker training
 INSTANCE_TYPE_TRAIN   = "ml.g4dn.xlarge"

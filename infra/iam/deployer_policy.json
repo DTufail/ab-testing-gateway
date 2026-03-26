@@ -1,0 +1,137 @@
+{
+  "_comment": [
+    "Inline policy for the IAM principal running infra/phase3_deploy.py.",
+    "This is NOT the Lambda runtime role — this is the human/CI identity that executes the deploy script.",
+    "Replace ACCOUNT_ID and REGION with your actual values before use.",
+    "",
+    "Permission sources (by deploy step):",
+    "  Step 1  — sts:GetCallerIdentity          : resolve account ID at script start",
+    "  Step 2  — iam:CreateRole                 : create ab-gateway-controller-role",
+    "  Step 2  — iam:GetRole                    : idempotency check if role exists",
+    "  Step 2  — iam:PutRolePolicy              : attach inline policy to controller role",
+    "  Step 3  — lambda:CreateFunction          : deploy traffic controller Lambda",
+    "  Step 3  — lambda:UpdateFunctionCode      : idempotency — update code if Lambda exists",
+    "  Step 3  — lambda:UpdateFunctionConfiguration : idempotency — update config if Lambda exists",
+    "  Step 3  — lambda:GetFunction             : retrieve ARN after update",
+    "  Step 3  — lambda:GetFunctionConfiguration: used internally by function_active_v2 waiter",
+    "  Step 4  — sns:CreateTopic                : create ab-gateway-alerts topic (idempotent)",
+    "  Step 4  — sns:Subscribe                  : add email endpoint to topic",
+    "  Step 5  — events:PutRule                 : create 15-minute EventBridge schedule rule",
+    "  Step 5  — events:PutTargets              : set traffic controller Lambda as rule target",
+    "  Step 5  — lambda:AddPermission           : grant EventBridge permission to invoke Lambda",
+    "  Step 6  — cloudwatch:PutMetricAlarm      : create 3 alarms (error rate, p95, heartbeat)",
+    "  Step 7  — cloudwatch:PutDashboard        : create 7-panel ABGateway-Dashboard",
+    "  Tests   — cloudwatch:GetDashboard        : test_traffic_controller.py Test 6",
+    "  Tests   — cloudwatch:DescribeAlarms      : test_traffic_controller.py Test 7",
+    "  Tests   — lambda:InvokeFunction          : test_traffic_controller.py Test 1 + Test 2"
+  ],
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "STSIdentity",
+      "Effect": "Allow",
+      "Action": [
+        "sts:GetCallerIdentity"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "IAMControllerRole",
+      "Effect": "Allow",
+      "Action": [
+        "iam:CreateRole",
+        "iam:GetRole",
+        "iam:PutRolePolicy"
+      ],
+      "Resource": "arn:aws:iam::ACCOUNT_ID:role/ab-gateway-controller-role",
+      "_comment": "Scoped to the specific controller role only."
+    },
+    {
+      "Sid": "LambdaControllerDeploy",
+      "Effect": "Allow",
+      "Action": [
+        "lambda:CreateFunction",
+        "lambda:UpdateFunctionCode",
+        "lambda:UpdateFunctionConfiguration",
+        "lambda:GetFunction",
+        "lambda:GetFunctionConfiguration",
+        "lambda:AddPermission"
+      ],
+      "Resource": "arn:aws:lambda:REGION:ACCOUNT_ID:function:ab-gateway-traffic-controller",
+      "_comment": "Scoped to the traffic controller Lambda function only."
+    },
+    {
+      "Sid": "LambdaPassRole",
+      "Effect": "Allow",
+      "Action": [
+        "iam:PassRole"
+      ],
+      "Resource": "arn:aws:iam::ACCOUNT_ID:role/ab-gateway-controller-role",
+      "Condition": {
+        "StringEquals": {
+          "iam:PassedToService": "lambda.amazonaws.com"
+        }
+      },
+      "_comment": "Required for lambda:CreateFunction and lambda:UpdateFunctionConfiguration to accept the role ARN."
+    },
+    {
+      "Sid": "SNSAlertsTopic",
+      "Effect": "Allow",
+      "Action": [
+        "sns:CreateTopic",
+        "sns:Subscribe"
+      ],
+      "Resource": "arn:aws:sns:REGION:ACCOUNT_ID:ab-gateway-alerts",
+      "_comment": "Scoped to the single alerts topic."
+    },
+    {
+      "Sid": "EventBridgeScheduleRule",
+      "Effect": "Allow",
+      "Action": [
+        "events:PutRule",
+        "events:PutTargets"
+      ],
+      "Resource": "arn:aws:events:REGION:ACCOUNT_ID:rule/ab-gateway-controller-schedule",
+      "_comment": "Scoped to the single controller schedule rule."
+    },
+    {
+      "Sid": "CloudWatchWrite",
+      "Effect": "Allow",
+      "Action": [
+        "cloudwatch:PutMetricAlarm",
+        "cloudwatch:PutDashboard"
+      ],
+      "Resource": [
+        "arn:aws:cloudwatch::ACCOUNT_ID:alarm:ABGateway-HighErrorRate",
+        "arn:aws:cloudwatch::ACCOUNT_ID:alarm:ABGateway-HighP95Latency",
+        "arn:aws:cloudwatch::ACCOUNT_ID:alarm:ABGateway-ControllerHeartbeatMissed",
+        "arn:aws:cloudwatch::ACCOUNT_ID:dashboard/ABGateway-Dashboard"
+      ],
+      "_comment": "Scoped to the 3 named alarms and the single dashboard."
+    },
+    {
+      "Sid": "CloudWatchRead",
+      "Effect": "Allow",
+      "Action": [
+        "cloudwatch:GetDashboard",
+        "cloudwatch:DescribeAlarms"
+      ],
+      "Resource": [
+        "arn:aws:cloudwatch::ACCOUNT_ID:alarm:ABGateway-HighErrorRate",
+        "arn:aws:cloudwatch::ACCOUNT_ID:alarm:ABGateway-HighP95Latency",
+        "arn:aws:cloudwatch::ACCOUNT_ID:alarm:ABGateway-ControllerHeartbeatMissed",
+        "arn:aws:cloudwatch::ACCOUNT_ID:dashboard/ABGateway-Dashboard"
+      ],
+      "_comment": "Read permissions needed by test_traffic_controller.py (Test 6 + Test 7)."
+    },
+    {
+      "Sid": "LambdaInvokeController",
+      "Effect": "Allow",
+      "Action": [
+        "lambda:InvokeFunction"
+      ],
+      "Resource": "arn:aws:lambda:REGION:ACCOUNT_ID:function:ab-gateway-traffic-controller",
+      "_comment": "Needed by test_traffic_controller.py Test 1 + Test 2 to invoke the controller directly."
+    }
+  ]
+}

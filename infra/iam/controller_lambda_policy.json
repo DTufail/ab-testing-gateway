@@ -1,0 +1,51 @@
+{
+  "_comment": [
+    "Inline policy for ab-gateway-controller-role (Traffic Controller Lambda runtime).",
+    "Attach via: iam:PutRolePolicy on role ab-gateway-controller-role.",
+    "Replace ACCOUNT_ID and REGION with your actual values before use.",
+    "",
+    "Permission sources:",
+    "  cloudwatch:GetMetricStatistics  — metrics_reader.py: reads ABGateway + AWS/SageMaker namespaces",
+    "  dynamodb:GetItem                — handler.py: reads current routing config (idempotency + weights)",
+    "  dynamodb:UpdateItem             — handler.py: writes updated weights + latency_cache + version",
+    "  logs:CreateLogGroup             — Lambda execution: auto-creates /aws/lambda/ab-gateway-traffic-controller",
+    "  logs:CreateLogStream            — Lambda execution: creates stream per invocation",
+    "  logs:PutLogEvents               — Lambda execution: structured decision log + error logs"
+  ],
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "CloudWatchMetricReads",
+      "Effect": "Allow",
+      "Action": [
+        "cloudwatch:GetMetricStatistics"
+      ],
+      "Resource": "*",
+      "_comment": "CloudWatch does not support resource-level conditions on GetMetricStatistics. Namespace-level restriction is not possible via IAM resource ARNs."
+    },
+    {
+      "Sid": "DynamoDBRoutingConfig",
+      "Effect": "Allow",
+      "Action": [
+        "dynamodb:GetItem",
+        "dynamodb:UpdateItem"
+      ],
+      "Resource": "arn:aws:dynamodb:REGION:ACCOUNT_ID:table/ab-gateway-routing-config",
+      "_comment": "Scoped to the single routing config table. No PutItem — controller uses UpdateItem only to preserve strategy and shadow_target fields."
+    },
+    {
+      "Sid": "CloudWatchLogs",
+      "Effect": "Allow",
+      "Action": [
+        "logs:CreateLogGroup",
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+      ],
+      "Resource": [
+        "arn:aws:logs:REGION:ACCOUNT_ID:log-group:/aws/lambda/ab-gateway-traffic-controller",
+        "arn:aws:logs:REGION:ACCOUNT_ID:log-group:/aws/lambda/ab-gateway-traffic-controller:*"
+      ],
+      "_comment": "Scoped to the controller log group only. The :* suffix covers log streams within the group."
+    }
+  ]
+}

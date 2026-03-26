@@ -1,0 +1,25 @@
+{
+  "timestamp": "2026-03-24T18:15:50.091100+00:00",
+  "endpoint_name": "ab-gateway-gpu",
+  "n_requests_per_variant": 50,
+  "variants": {
+    "VariantA-BERT-FP32": {
+      "p50": 1220.36,
+      "p95": 1408.75,
+      "p99": 1486.61,
+      "mean": 1231.69
+    },
+    "VariantB-BERT-INT8": {
+      "p50": 1179.74,
+      "p95": 1439.62,
+      "p99": 1744.81,
+      "mean": 1226.1
+    },
+    "VariantC-DistilBERT": {
+      "p50": 1167.77,
+      "p95": 1396.18,
+      "p99": 1541.5,
+      "mean": 1199.88
+    }
+  }
+}

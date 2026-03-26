@@ -30,3 +30,6 @@ bert-int8-onnx/
 build/
 dist/
 *.egg-info/
+
+# CDK output
+cdk.out/

@@ -40,6 +40,11 @@ def parse_args():
         default=50,
         help="Number of requests per variant (default: 50)",
     )
+    parser.add_argument(
+        "--output",
+        default=None,
+        help="Output JSON filename under benchmarks/ (default: phase1_baseline.json)",
+    )
     return parser.parse_args()
 
 
@@ -122,16 +127,17 @@ def main():
 
     # Save results
     os.makedirs(BENCHMARKS_DIR, exist_ok=True)
+    out_file = os.path.join(BENCHMARKS_DIR, args.output) if args.output else OUTPUT_FILE
     output = {
         "timestamp": datetime.now(timezone.utc).isoformat(),
         "endpoint_name": endpoint_name,
         "n_requests_per_variant": args.n,
         "variants": variant_stats,
     }
-    with open(OUTPUT_FILE, "w") as f:
+    with open(out_file, "w") as f:
         json.dump(output, f, indent=2)
 
-    print(f"\nResults saved to: {OUTPUT_FILE}")
+    print(f"\nResults saved to: {out_file}")
 
 
 if __name__ == "__main__":
