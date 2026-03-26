@@ -41,11 +41,11 @@ VARIANT_B = "VariantB-BERT-INT8"
 VARIANT_C = "VariantC-DistilBERT"
 ALL_VARIANTS = [VARIANT_A, VARIANT_B, VARIANT_C]
 
-# Model Registry group names
+# Model Registry group names — must match cdk.json model_groups exactly
 MODEL_GROUPS = {
-    VARIANT_A: "BERT-FP32-Banking77",
-    VARIANT_B: "BERT-INT8-Banking77",
-    VARIANT_C: "DistilBERT-FP32-Banking77",
+    VARIANT_A: "VariantA-BERT-FP32-ModelGroup",
+    VARIANT_B: "VariantB-BERT-INT8-ModelGroup",
+    VARIANT_C: "VariantC-DistilBERT-ModelGroup",
 }
 
 # Traffic weights for initial deployment (must sum to same total — SageMaker normalises)
