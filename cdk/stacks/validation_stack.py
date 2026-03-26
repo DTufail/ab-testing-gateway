@@ -139,16 +139,12 @@ class ValidationStack(Stack):
                         "runtime-versions": {"python": "3.11"},
                         "commands": ["pip install boto3 --quiet"],
                     },
-                    "pre_build": {
-                        "commands": [
-                            # Upload golden test set to S3 (idempotent — overwrites same object)
-                            "aws s3 cp models/golden_test_set.jsonl "
-                            "s3://$ARTIFACT_BUCKET/validation/golden_test_set.jsonl --quiet",
-                        ]
-                    },
                     "build": {
                         "commands": [
-                            "python cdk/buildspec/validate_model.py",
+                            # Download validation script from S3 (uploaded via scripts/upload_validation_assets.sh)
+                            # CodeBuild has NO_SOURCE so cannot access GitHub repo files directly.
+                            "aws s3 cp s3://$ARTIFACT_BUCKET/validation/validate_model.py validate_model.py --quiet",
+                            "python validate_model.py",
                         ]
                     },
                 },
