@@ -58,7 +58,7 @@ def invoke_single(example: dict) -> dict:
     Returns {"correct": bool, "predicted_id": int|None, "label": int, "error": str|None}
     """
     label = example["label"]
-    body  = json.dumps({"text": example["text"]})
+    body  = json.dumps({"inputs": example["text"]})
 
     for attempt in range(MAX_RETRIES + 1):
         try:
@@ -70,6 +70,9 @@ def invoke_single(example: dict) -> dict:
                 Body=body,
             )
             result       = json.loads(resp["Body"].read().decode("utf-8"))
+            # HuggingFace DLC wraps predict_fn output in a list; unwrap it
+            if isinstance(result, list):
+                result = result[0]
             predicted_id = result.get("predicted_id")
             return {
                 "correct":      predicted_id == label,

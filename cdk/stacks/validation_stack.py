@@ -142,7 +142,7 @@ class ValidationStack(Stack):
                     "pre_build": {
                         "commands": [
                             # Upload golden test set to S3 (idempotent — overwrites same object)
-                            "aws s3 cp benchmarks/golden_test_set.jsonl "
+                            "aws s3 cp models/golden_test_set.jsonl "
                             "s3://$ARTIFACT_BUCKET/validation/golden_test_set.jsonl --quiet",
                         ]
                     },

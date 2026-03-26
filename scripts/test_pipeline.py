@@ -168,7 +168,7 @@ def test_endpoint_invocation_dry_run():
     endpoint_name = get_endpoint_name()
 
     # Load the first 5 examples from the golden test set locally
-    golden_path = "benchmarks/golden_test_set.jsonl"
+    golden_path = "models/golden_test_set.jsonl"
     examples = []
     with open(golden_path) as f:
         for line in f:
@@ -189,9 +189,11 @@ def test_endpoint_invocation_dry_run():
                 TargetVariant="VariantB-BERT-INT8",
                 ContentType="application/json",
                 Accept="application/json",
-                Body=json.dumps({"text": example["text"]}),
+                Body=json.dumps({"inputs": example["text"]}),
             )
             result = json.loads(resp["Body"].read().decode("utf-8"))
+            if isinstance(result, list):
+                result = result[0]
             assert "predicted_id" in result, \
                 f"Example {i}: response missing 'predicted_id' field. Got: {result}"
             assert isinstance(result["predicted_id"], int), \
