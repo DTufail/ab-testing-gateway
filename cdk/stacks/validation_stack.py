@@ -1,3 +1,4 @@
+import os
 import aws_cdk as cdk
 from aws_cdk import (
     Stack,
@@ -17,6 +18,16 @@ class ValidationStack(Stack):
         account = self.account
         region  = self.region
 
+        # ── Read endpoint name at synth time ──────────────────────────────
+        endpoint_name_path = os.path.normpath(
+            os.path.join(os.path.dirname(__file__), "..", "..", "benchmarks", "endpoint_name.txt")
+        )
+        try:
+            with open(endpoint_name_path) as f:
+                endpoint_name = f.read().strip()
+        except FileNotFoundError:
+            endpoint_name = "ENDPOINT_NAME_NOT_FOUND_SET_MANUALLY"
+
         # ── S3 bucket for validation artifacts ────────────────────────────
         # Deterministic name so canary Lambda can reference it without
         # CloudFormation cross-stack imports (which add fragile dependencies).
@@ -32,7 +43,7 @@ class ValidationStack(Stack):
         )
 
         # ── IAM role for CodeBuild ─────────────────────────────────────────
-        # Needs SageMaker (Batch Transform) + S3 (input/output) + Logs
+        # Needs SageMaker InvokeEndpoint + S3 (golden set upload/download) + Logs
         # Does NOT use SageMakerFullAccess — principle of least privilege.
         self.validation_role = iam.Role(
             self,
@@ -40,29 +51,14 @@ class ValidationStack(Stack):
             role_name="ab-gateway-validation-codebuild-role",
             assumed_by=iam.ServicePrincipal("codebuild.amazonaws.com"),
             inline_policies={
-                "SageMakerBatchTransform": iam.PolicyDocument(
+                "ValidationPolicy": iam.PolicyDocument(
                     statements=[
                         iam.PolicyStatement(
-                            sid="SageMakerTransformPermissions",
-                            actions=[
-                                "sagemaker:CreateModel",
-                                "sagemaker:CreateTransformJob",
-                                "sagemaker:DescribeTransformJob",
-                                "sagemaker:StopTransformJob",
-                                "sagemaker:DeleteModel",
-                                "sagemaker:DescribeModelPackage",
+                            sid="SageMakerInvokeEndpoint",
+                            actions=["sagemaker:InvokeEndpoint"],
+                            resources=[
+                                f"arn:aws:sagemaker:{region}:{account}:endpoint/*"
                             ],
-                            resources=["*"],
-                        ),
-                        iam.PolicyStatement(
-                            sid="PassRoleForSageMaker",
-                            actions=["iam:PassRole"],
-                            resources=[f"arn:aws:iam::{account}:role/*"],
-                            conditions={
-                                "StringEquals": {
-                                    "iam:PassedToService": "sagemaker.amazonaws.com"
-                                }
-                            },
                         ),
                         iam.PolicyStatement(
                             sid="S3ArtifactAccess",
@@ -123,20 +119,38 @@ class ValidationStack(Stack):
                     value=self.validation_role.role_arn,
                     type=codebuild.BuildEnvironmentVariableType.PLAINTEXT,
                 ),
+                "ENDPOINT_NAME": codebuild.BuildEnvironmentVariable(
+                    value=endpoint_name,
+                    type=codebuild.BuildEnvironmentVariableType.PLAINTEXT,
+                ),
+                "GOLDEN_S3_KEY": codebuild.BuildEnvironmentVariable(
+                    value="validation/golden_test_set.jsonl",
+                    type=codebuild.BuildEnvironmentVariableType.PLAINTEXT,
+                ),
+                "ACCURACY_THRESHOLD": codebuild.BuildEnvironmentVariable(
+                    value="0.80",
+                    type=codebuild.BuildEnvironmentVariableType.PLAINTEXT,
+                ),
             },
-            # Stub buildspec for Phase 4a — just echoes inputs and exits 0.
-            # Phase 4c replaces this with the real validation script.
             build_spec=codebuild.BuildSpec.from_object({
                 "version": "0.2",
                 "phases": {
+                    "install": {
+                        "runtime-versions": {"python": "3.11"},
+                        "commands": ["pip install boto3 --quiet"],
+                    },
+                    "pre_build": {
+                        "commands": [
+                            # Upload golden test set to S3 (idempotent — overwrites same object)
+                            "aws s3 cp benchmarks/golden_test_set.jsonl "
+                            "s3://$ARTIFACT_BUCKET/validation/golden_test_set.jsonl --quiet",
+                        ]
+                    },
                     "build": {
                         "commands": [
-                            "echo 'Phase 4a stub — validation not yet implemented'",
-                            "echo \"MODEL_PACKAGE_ARN=$MODEL_PACKAGE_ARN\"",
-                            "echo \"VARIANT_NAME=$VARIANT_NAME\"",
-                            "echo '{\"stub\": true, \"passed\": true}' > validation_result.json",
+                            "python cdk/buildspec/validate_model.py",
                         ]
-                    }
+                    },
                 },
                 "artifacts": {"files": ["validation_result.json"]},
             }),
