@@ -32,8 +32,7 @@ class PipelineStack(Stack):
                 input=source,
                 install_commands=[
                     "npm install -g aws-cdk@2.170.0",
-                    "cd cdk",
-                    "pip install -r requirements.txt",
+                    "pip install -r cdk/requirements.txt",
                 ],
                 commands=[
                     # Working directory is still repo root here.
