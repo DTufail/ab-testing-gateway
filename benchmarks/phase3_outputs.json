@@ -1,8 +1,8 @@
 {
-  "controller_lambda_arn": "arn:aws:lambda:us-east-1:011190986627:function:ab-gateway-traffic-controller",
+  "controller_lambda_arn": "arn:aws:lambda:us-east-1:YOUR_ACCOUNT_ID:function:ab-gateway-traffic-controller",
   "controller_lambda_name": "ab-gateway-traffic-controller",
   "eventbridge_rule_name": "ab-gateway-controller-schedule",
-  "sns_topic_arn": "arn:aws:sns:us-east-1:011190986627:ab-gateway-alerts",
+  "sns_topic_arn": "arn:aws:sns:us-east-1:YOUR_ACCOUNT_ID:ab-gateway-alerts",
   "dashboard_name": "ABGateway-Dashboard",
   "alarms": [
     "ABGateway-HighErrorRate",

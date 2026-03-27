@@ -1,12 +1,12 @@
 {
   "app": "python3 app.py",
   "context": {
-    "account":          "011190986627",
+    "account":          "YOUR_ACCOUNT_ID",
     "region":           "us-east-1",
-    "github_owner":     "DTufail",
+    "github_owner":     "YOUR_GITHUB_USERNAME",
     "github_repo":      "ab-testing-gateway",
     "github_branch":    "main",
-    "connection_arn":   "arn:aws:codeconnections:us-east-1:011190986627:connection/202a49ea-a516-42ad-bb5d-0a3705123d5d",
+    "connection_arn":   "arn:aws:codeconnections:us-east-1:YOUR_ACCOUNT_ID:connection/YOUR_CONNECTION_ID",
     "model_groups": [
       "VariantA-BERT-FP32-ModelGroup",
       "VariantB-BERT-INT8-ModelGroup",

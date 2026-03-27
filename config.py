@@ -2,9 +2,9 @@
 import os
 
 AWS_REGION        = "us-east-1"
-AWS_ACCOUNT_ID    = os.environ.get("AWS_ACCOUNT_ID", "011190986627")
+AWS_ACCOUNT_ID    = os.environ.get("AWS_ACCOUNT_ID", "YOUR_ACCOUNT_ID")
 S3_BUCKET         = "ab-gateway-artifacts"
-SAGEMAKER_ROLE    = os.environ.get("SAGEMAKER_ROLE_ARN", "arn:aws:iam::011190986627:role/service-role/AmazonSageMaker-ExecutionRole-20260324T125083")
+SAGEMAKER_ROLE    = os.environ.get("SAGEMAKER_ROLE_ARN", "arn:aws:iam::YOUR_ACCOUNT_ID:role/service-role/AmazonSageMaker-ExecutionRole-20260324T125083")
 
 # S3 paths — original model weights (raw training output, weights only)
 S3_BERT_FP32  = f"s3://{S3_BUCKET}/models/bert-fp32/huggingface-pytorch-training-2026-03-26-14-19-16-958/output/model.tar.gz"

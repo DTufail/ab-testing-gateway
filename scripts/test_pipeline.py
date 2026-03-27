@@ -142,9 +142,9 @@ def test_codebuild_project_real_buildspec():
 def test_s3_artifact_bucket_exists():
     """Test 6 — S3 artifact bucket exists"""
     try:
-        s3.head_bucket(Bucket="ab-gateway-validation-011190986627")
+        s3.head_bucket(Bucket="ab-gateway-validation-YOUR_ACCOUNT_ID")
     except Exception as e:
-        raise AssertionError(f"Bucket 'ab-gateway-validation-011190986627' not accessible: {e}")
+        raise AssertionError(f"Bucket 'ab-gateway-validation-YOUR_ACCOUNT_ID' not accessible: {e}")
 
 
 def test_endpoint_healthy_with_variants():

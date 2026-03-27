@@ -33,3 +33,7 @@ dist/
 
 # CDK output
 cdk.out/
+# Environment files
+.env
+*.env
+claud-code-findings-prompt.md

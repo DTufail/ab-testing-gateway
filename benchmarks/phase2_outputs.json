@@ -1,7 +1,7 @@
 {
-  "api_gateway_url": "https://rxzb8ony94.execute-api.us-east-1.amazonaws.com/prod/predict",
+  "api_gateway_url": "https://YOUR_API_GW_ID.execute-api.us-east-1.amazonaws.com/prod/predict",
   "lambda_function_name": "ab-gateway-router",
   "dynamodb_table": "ab-gateway-routing-config",
-  "lambda_role_arn": "arn:aws:iam::011190986627:role/ab-gateway-router-role",
+  "lambda_role_arn": "arn:aws:iam::YOUR_ACCOUNT_ID:role/ab-gateway-router-role",
   "deployed_at": "2026-03-25T11:35:58.022446+00:00"
 }
