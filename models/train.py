@@ -80,12 +80,14 @@ training_args = TrainingArguments(
     per_device_eval_batch_size=64,
     learning_rate=2e-5,
     weight_decay=0.01,
+    warmup_ratio=0.1,
     fp16=not SMOKE_TEST,  # CPU (smoke test) doesn't support fp16
     evaluation_strategy="epoch",
     save_strategy="epoch",
     load_best_model_at_end=True,
     metric_for_best_model="accuracy",
     logging_steps=50,
+    dataloader_num_workers=1,  # required: accelerate passes prefetch_factor which needs num_workers > 0
 )
 
 # --- Trainer ---

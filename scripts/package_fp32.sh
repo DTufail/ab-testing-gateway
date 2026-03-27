@@ -30,6 +30,9 @@ rm -rf "$WORK_DIR"
 mkdir -p "$WORK_DIR"
 tar -xzf raw-model.tar.gz -C "$WORK_DIR/"
 
+echo "==> Removing checkpoints (not needed for inference)..."
+rm -rf "$WORK_DIR"/checkpoint-*
+
 echo "==> Injecting inference script..."
 mkdir -p "$WORK_DIR/code"
 cp models/inference_fp32/inference.py     "$WORK_DIR/code/"
@@ -37,10 +40,10 @@ cp models/inference_fp32/requirements.txt "$WORK_DIR/code/"
 
 echo "==> Repacking..."
 FINAL_TAR="./${VARIANT}-fp32-final.tar.gz"
-cd "$WORK_DIR" && tar -czvf "../$FINAL_TAR" . && cd ..
+cd "$WORK_DIR" && tar -czf "../$FINAL_TAR" . && cd ..
 
 echo "==> Uploading final artifact to $S3_FINAL..."
 aws s3 cp "$FINAL_TAR" "$S3_FINAL"
 
 echo "==> Done. Final artifact at $S3_FINAL"
-rm -f raw-model.tar.gz "$FINAL_TAR"
+rm -rf raw-model.tar.gz "$FINAL_TAR" "$WORK_DIR"

@@ -37,7 +37,7 @@ def build_bert_estimator():
         hyperparameters={},
         environment={
             "MODEL_NAME": "bert-base-uncased",
-            "NUM_EPOCHS": "3",
+            "NUM_EPOCHS": "6",
         },
         output_path=f"s3://{config.S3_BUCKET}/models/bert-fp32/",
     )
@@ -56,7 +56,7 @@ def build_distilbert_estimator():
         hyperparameters={},
         environment={
             "MODEL_NAME": "distilbert-base-uncased",
-            "NUM_EPOCHS": "3",
+            "NUM_EPOCHS": "6",
         },
         output_path=f"s3://{config.S3_BUCKET}/models/distilbert-fp32/",
     )

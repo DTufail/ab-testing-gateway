@@ -1,2 +1,2 @@
-datasets==2.21.0
-transformers==4.41.0
+# Using container's built-in versions (PyTorch 1.13, transformers 4.26, datasets 2.16)
+# Do not pin transformers or datasets here — upgrading either breaks accelerate compatibility.

@@ -13,11 +13,11 @@ from botocore.exceptions import ClientError
 
 sm_client = boto3.client("sagemaker", region_name=config.AWS_REGION)
 
-# S3 paths for each variant
+# S3 paths for each variant — bundled archives (model weights + code/inference.py)
 VARIANT_S3_MAP = {
-    config.VARIANT_A: config.S3_BERT_FP32,
-    config.VARIANT_B: config.S3_BERT_INT8,
-    config.VARIANT_C: config.S3_DISTILBERT,
+    config.VARIANT_A: f"s3://{config.S3_BUCKET}/models/bert-fp32/model.tar.gz",
+    config.VARIANT_B: f"s3://{config.S3_BUCKET}/models/bert-int8/model.tar.gz",
+    config.VARIANT_C: f"s3://{config.S3_BUCKET}/models/distilbert-fp32/model.tar.gz",
 }
 
 registered_arns = {}
@@ -32,7 +32,9 @@ def ensure_model_package_group(group_name):
         )
         print(f"  Created ModelPackageGroup: {group_name}")
     except ClientError as e:
-        if e.response["Error"]["Code"] == "ConflictException":
+        code = e.response["Error"]["Code"]
+        msg = e.response["Error"]["Message"]
+        if code in ("ConflictException", "ValidationException") and "already exists" in msg:
             print(f"  ModelPackageGroup already exists: {group_name} (skipping)")
         else:
             raise

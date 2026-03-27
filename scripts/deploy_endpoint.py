@@ -171,17 +171,11 @@ def main():
             except sm_client.exceptions.ClientError:
                 print("  Endpoint not found — skipping deletion.")
 
-    # ── 1. Build and upload bundled model archives for Variants A and C ───────
-    print("\nBuilding bundled model archives (weights + code/inference.py)...")
-    fp32_code_dir = os.path.join(REPO_ROOT, "models", "inference_fp32")
-
-    print(f"  VariantA-BERT-FP32:")
-    _repackage_model_with_code(config.S3_BERT_FP32, fp32_code_dir, config.S3_BERT_FP32_BUNDLED)
-
-    print(f"  VariantC-DistilBERT:")
-    _repackage_model_with_code(config.S3_DISTILBERT, fp32_code_dir, config.S3_DISTILBERT_BUNDLED)
-
-    print("  VariantB-BERT-INT8: code already bundled in bert-int8.tar.gz — skipping.")
+    # ── 1. Models already bundled via package_fp32.sh — skip re-bundling ────
+    print("\nModel archives already bundled with code/inference.py — skipping re-bundling.")
+    print(f"  VariantA: {config.S3_BERT_FP32_BUNDLED}")
+    print(f"  VariantB: {config.S3_BERT_INT8}")
+    print(f"  VariantC: {config.S3_DISTILBERT_BUNDLED}")
 
     # ── 2. Create SageMaker Model objects ─────────────────────────────────────
     print("\nCreating SageMaker Model objects...")

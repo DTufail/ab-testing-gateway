@@ -24,8 +24,8 @@ def parse_args():
 
 def main():
     args = parse_args()
-    model_dir = args.model_dir
-    output_dir = args.output_dir
+    model_dir = str(Path(args.model_dir).resolve())
+    output_dir = str(Path(args.output_dir).resolve())
 
     os.makedirs(output_dir, exist_ok=True)
 
@@ -43,7 +43,7 @@ def main():
 
     # Step 2: Quantize to INT8 using Optimum
     print("Quantizing to INT8 (dynamic, avx512_vnni config)...")
-    quantizer = ORTQuantizer.from_pretrained(output_dir)
+    quantizer = ORTQuantizer.from_pretrained(output_dir, file_name="model.onnx")
     dqconfig = AutoQuantizationConfig.avx512_vnni(is_static=False, per_channel=False)
     quantizer.quantize(save_dir=output_dir, quantization_config=dqconfig)
 

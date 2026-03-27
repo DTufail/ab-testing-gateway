@@ -1,73 +1,73 @@
 {
-  "endpoint_name": "ab-gateway-endpoint-20260325-085817",
-  "pulled_at": "2026-03-25T17:06:50.103383+00:00",
+  "endpoint_name": "ab-gateway-endpoint-20260327-082727",
+  "pulled_at": "2026-03-27T09:25:26.816239+00:00",
   "lookback_hours": 1,
   "note": "Units: _us = microseconds, _ms = milliseconds. ModelLatency = pure container inference. OverheadLatency = SageMaker routing overhead.",
   "variants": {
     "VariantA-BERT-FP32": {
       "ModelLatency": {
-        "avg_us": 257304.8,
-        "min_us": 251335.0,
-        "max_us": 317055.0,
-        "p50_us": 258269.5,
-        "p95_us": 271146.4,
-        "p99_us": 301907.2,
-        "p50_ms": 258.3,
-        "p95_ms": 271.1
+        "avg_us": 275472.8,
+        "min_us": 265044.0,
+        "max_us": 350634.0,
+        "p50_us": 278134.8,
+        "p95_us": 290468.3,
+        "p99_us": 314912.8,
+        "p50_ms": 278.1,
+        "p95_ms": 290.5
       },
       "OverheadLatency": {
-        "avg_us": 3827.0,
-        "min_us": 2593.0,
-        "max_us": 30737.0,
-        "p50_us": 3239.1,
-        "p95_us": 5928.5,
-        "p99_us": 26498.6,
-        "p50_ms": 3.2,
-        "p95_ms": 5.9
+        "avg_us": 20830.4,
+        "min_us": 3456.0,
+        "max_us": 194683.0,
+        "p50_us": 6583.8,
+        "p95_us": 43872.2,
+        "p99_us": 137689.8,
+        "p50_ms": 6.6,
+        "p95_ms": 43.9
       }
     },
     "VariantB-BERT-INT8": {
       "ModelLatency": {
-        "avg_us": 183626.6,
-        "min_us": 173584.0,
-        "max_us": 248785.0,
-        "p50_us": 178102.7,
-        "p95_us": 236486.0,
-        "p99_us": 246510.2,
-        "p50_ms": 178.1,
-        "p95_ms": 236.5
+        "avg_us": 181369.9,
+        "min_us": 175833.0,
+        "max_us": 218140.0,
+        "p50_us": 179950.2,
+        "p95_us": 197101.0,
+        "p99_us": 205446.4,
+        "p50_ms": 180.0,
+        "p95_ms": 197.1
       },
       "OverheadLatency": {
-        "avg_us": 4015.1,
-        "min_us": 2583.0,
-        "max_us": 15324.0,
-        "p50_us": 3284.7,
-        "p95_us": 8275.9,
-        "p99_us": 15279.2,
-        "p50_ms": 3.3,
-        "p95_ms": 8.3
+        "avg_us": 17276.2,
+        "min_us": 3434.0,
+        "max_us": 77770.0,
+        "p50_us": 8763.0,
+        "p95_us": 42188.0,
+        "p99_us": 47892.9,
+        "p50_ms": 8.8,
+        "p95_ms": 42.2
       }
     },
     "VariantC-DistilBERT": {
       "ModelLatency": {
-        "avg_us": 135963.5,
-        "min_us": 130647.0,
-        "max_us": 188653.0,
-        "p50_us": 134037.0,
-        "p95_us": 148272.6,
-        "p99_us": 183897.6,
-        "p50_ms": 134.0,
-        "p95_ms": 148.3
+        "avg_us": 135491.0,
+        "min_us": 129488.0,
+        "max_us": 193391.0,
+        "p50_us": 133692.9,
+        "p95_us": 148462.0,
+        "p99_us": 177506.1,
+        "p50_ms": 133.7,
+        "p95_ms": 148.5
       },
       "OverheadLatency": {
-        "avg_us": 4359.3,
-        "min_us": 2899.0,
-        "max_us": 24451.0,
-        "p50_us": 3839.1,
-        "p95_us": 7105.4,
-        "p99_us": 24428.7,
-        "p50_ms": 3.8,
-        "p95_ms": 7.1
+        "avg_us": 18266.7,
+        "min_us": 3584.0,
+        "max_us": 77198.0,
+        "p50_us": 11584.4,
+        "p95_us": 42306.7,
+        "p99_us": 55570.4,
+        "p50_ms": 11.6,
+        "p95_ms": 42.3
       }
     }
   }

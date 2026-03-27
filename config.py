@@ -7,15 +7,15 @@ S3_BUCKET         = "ab-gateway-artifacts"
 SAGEMAKER_ROLE    = os.environ.get("SAGEMAKER_ROLE_ARN", "arn:aws:iam::011190986627:role/service-role/AmazonSageMaker-ExecutionRole-20260324T125083")
 
 # S3 paths — original model weights (raw training output, weights only)
-S3_BERT_FP32  = f"s3://{S3_BUCKET}/models/bert-fp32/huggingface-pytorch-training-2026-03-24-14-48-08-677/output/model.tar.gz"
+S3_BERT_FP32  = f"s3://{S3_BUCKET}/models/bert-fp32/huggingface-pytorch-training-2026-03-26-14-19-16-958/output/model.tar.gz"
 S3_BERT_INT8  = f"s3://{S3_BUCKET}/models/bert-int8/model.tar.gz"
-S3_DISTILBERT = f"s3://{S3_BUCKET}/models/distilbert-fp32/huggingface-pytorch-training-2026-03-24-15-02-31-971/output/model.tar.gz"
+S3_DISTILBERT = f"s3://{S3_BUCKET}/models/distilbert-fp32/huggingface-pytorch-training-2026-03-26-14-37-21-886/output/model.tar.gz"
 
 # S3 paths — bundled archives (model weights + code/inference.py in one tar.gz)
 # The HF DLC finds inference.py at /opt/ml/model/code/inference.py automatically.
 # No SAGEMAKER_SUBMIT_DIRECTORY or SAGEMAKER_PROGRAM env vars needed.
-S3_BERT_FP32_BUNDLED  = f"s3://{S3_BUCKET}/models/bert-fp32-bundled/model.tar.gz"
-S3_DISTILBERT_BUNDLED = f"s3://{S3_BUCKET}/models/distilbert-bundled/model.tar.gz"
+S3_BERT_FP32_BUNDLED  = f"s3://{S3_BUCKET}/models/bert-fp32/model.tar.gz"
+S3_DISTILBERT_BUNDLED = f"s3://{S3_BUCKET}/models/distilbert-fp32/model.tar.gz"
 
 # SageMaker training
 INSTANCE_TYPE_TRAIN   = "ml.g4dn.xlarge"
